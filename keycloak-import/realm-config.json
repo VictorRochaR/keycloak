@@ -1,0 +1,74 @@
+{
+  "realm": "nest-react-realm",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "app-leitor"
+      },
+      {
+        "name": "app-criador"
+      },
+      {
+        "name": "app-editor"
+      },
+      {
+        "name": "app-removedor"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "react-app",
+      "name": "react-app",
+      "publicClient": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [
+        "http://localhost:5173/*"
+      ],
+      "protocol": "openid-connect"
+    },
+    {
+      "clientId": "nest-api",
+      "name": "nest-api",
+      "secret": "minha-api-secret-forte",
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": true,
+      "protocol": "openid-connect"
+    }
+  ],
+  "users": [
+    {
+      "username": "usuario-completo",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "app-leitor",
+        "app-criador",
+        "app-editor",
+        "app-removedor"
+      ]
+    },
+    {
+      "username": "usuario-leitor",
+      "enabled": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "app-leitor"
+      ]
+    }
+  ]
+}
